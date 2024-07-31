@@ -1,0 +1,1 @@
+g++ -o main main.cpp racket.cpp ball.cpp -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
