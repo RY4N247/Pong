@@ -19,6 +19,7 @@ class Racket{
         int getXPosition();
         float getWidth();
         float getHeight();
+        Rectangle getRectangle();
         
 };
 

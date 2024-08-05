@@ -37,3 +37,7 @@ float Racket::getWidth(){
 float Racket::getHeight(){
     return WidthHeight.y;
 }
+
+Rectangle Racket::getRectangle(){
+	return Rectangle{position.x, position.y, WidthHeight.x, WidthHeight.y}; 
+}

@@ -4,12 +4,15 @@
 #include <iostream>
 #include <unistd.h>
 
+void checkCollision(Racket racket, Ball &ball);
+
 int main()
 {
 
     const int ScreenWidth = 1920;
     const int ScreenHeight = 1080;
 
+    
 
     InitWindow(ScreenWidth, ScreenHeight, "Pong Game");
     SetTargetFPS(120);
@@ -40,11 +43,14 @@ int main()
         }
 
         BeginDrawing();
-        ClearBackground(BLUE);
-        racket1.draw();
-        racket2.draw();
-        ball.draw();
-        ball.move();
+            ClearBackground(BLUE);
+            racket1.draw();
+            racket2.draw();
+            ball.draw();
+            ball.move();
+            checkCollision(racket1,ball);
+            checkCollision(racket2, ball);
+
 
 
 
@@ -57,6 +63,7 @@ int main()
         // std::cout << GetFPS() << std::endl;
         //std::cout << ball.getBallPosition().x << std::endl;
         //std::cout << ball.getBallPosition().x << std::endl;
+        std::cout << ball.getPlayer1Score() << std::endl;
         
 
     }
@@ -64,4 +71,15 @@ int main()
     CloseWindow();
 
     return 0;
+}
+
+void checkCollision(Racket racket, Ball &ball)
+{
+    bool coll = CheckCollisionCircleRec(ball.getBallPosition(), ball.getRadius(), racket.getRectangle());
+
+    if (coll)
+    {
+        std::cout << "collision" << std::endl;
+        ball.setXspeed(-1 * ball.getXspeed());
+    }
 }

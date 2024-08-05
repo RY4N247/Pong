@@ -20,6 +20,12 @@ class Ball{
         Vector2 getBallPosition();
         int getPlayer1Score();
         int getPlayer2Score();
+        float getRadius();
+        void setXspeed(float Xspeed);
+        void setYspeed(float Yspeed);
+        float getXspeed();
+        float getYspeed();
+        void setBallPosition(Vector2 center);
 
 };
 
