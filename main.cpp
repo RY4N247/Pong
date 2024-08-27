@@ -54,16 +54,18 @@ int main()
 
 
 
-        // Debug lines
-        // DrawLine(0, ScreenHeight / 2, ScreenWidth, ScreenHeight / 2, RED); // Horizontal center line
-        // DrawLine(ScreenWidth / 2, 0, ScreenWidth / 2, ScreenHeight, RED); // Vertical center line
+
+        DrawText(TextFormat("Player 1 score: %d", ball.getPlayer1Score()), ScreenWidth/4 , 20, 40, WHITE);
+        DrawText(TextFormat("Player 2 score: %d", ball.getPlayer2Score()), ScreenWidth*0.75 - 320, 20, 40, WHITE);
+        DrawLine(ScreenWidth/2, 0, ScreenWidth/2, ScreenHeight, WHITE);  
+        DrawCircleLines(ScreenWidth/2, ScreenHeight/2, 100, WHITE);
         EndDrawing();
 
         // std::cout << racket1.getYPosition() << std::endl;
         // std::cout << GetFPS() << std::endl;
         //std::cout << ball.getBallPosition().x << std::endl;
         //std::cout << ball.getBallPosition().x << std::endl;
-        std::cout << ball.getPlayer1Score() << std::endl;
+       // std::cout << ball.getPlayer1Score() << std::endl;
         
 
     }
@@ -79,7 +81,7 @@ void checkCollision(Racket racket, Ball &ball)
 
     if (coll)
     {
-        std::cout << "collision" << std::endl;
+        //std::cout << "collision" << std::endl;
         ball.setXspeed(-1 * ball.getXspeed());
     }
 }
